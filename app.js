@@ -153,9 +153,9 @@ let mars = createPlanet({
       shininess: 10 },
 
     textures: {
-      map: './assets/Assets/Gemini_Generated_Image_o0otfwo0otfwo0ot.png',
-      bumpMap: './assets/bump_map.png',
-      specularMap: './assets/rgb_sketchmap.jpg' } },
+      map: 'assets/Assets/Gemini_Generated_Image_o0otfwo0otfwo0ot.png',
+      bumpMap: 'assets/bump_map.png',
+      specularMap: 'assets/rgb_sketchmap.jpg' } },
 
 
   atmosphere: {
@@ -164,8 +164,8 @@ let mars = createPlanet({
       opacity: 0.8 },
 
     textures: {
-      map: './assets/cloud_map.png',
-      alphaMap: './assets/cloud_map.png' },
+      map: 'assets/cloud_map.png',
+      alphaMap: 'assets/cloud_map.png' },
 
     glow: {
       size: 0.02,
@@ -245,7 +245,7 @@ let galaxy = new THREE.Mesh(galaxyGeometry, galaxyMaterial);
 
 textureLoader.crossOrigin = true;
 textureLoader.load(
-'./assets/Assets/Gemini_Generated_Image_tb4q3atb4q3atb4q.png',
+'assets/Assets/Gemini_Generated_Image_tb4q3atb4q3atb4q.png',
 function (texture) {
   galaxyMaterial.map = texture;
   scene.add(galaxy);
