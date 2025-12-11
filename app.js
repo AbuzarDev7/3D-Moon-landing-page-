@@ -158,7 +158,7 @@ let mars = createPlanet({
       shininess: 10 },
 
     textures: {
-      map: './Assets/Gemini_Generated_Image_o0otfwo0otfwo0ot.png',
+     
       bumpMap: './Assets/bump_map.png',
       specularMap: './Assets/rgb_sketchmap.jpg' } },
 
@@ -250,7 +250,7 @@ let galaxy = new THREE.Mesh(galaxyGeometry, galaxyMaterial);
 
 textureLoader.crossOrigin = true;
 textureLoader.load(
-'./Assets/Gemini_Generated_Image_6fj4wr6fj4wr6fj4.png',
+'./Assets/background.jpg',
 function (texture) {
   galaxyMaterial.map = texture;
   scene.add(galaxy);
