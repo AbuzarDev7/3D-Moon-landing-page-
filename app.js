@@ -1,5 +1,6 @@
 
-let renderer = new THREE.WebGLRenderer();
+let renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(window.devicePixelRatio);
 let scene = new THREE.Scene();
 let aspect = window.innerWidth / window.innerHeight;
 let camera = new THREE.PerspectiveCamera(45, aspect, 0.1, 1500);
@@ -88,6 +89,10 @@ let planetProto = {
     function (texture) {
       material[property] = texture;
       material.needsUpdate = true;
+    },
+    undefined,
+    function (error) {
+      console.error('Error loading texture:', uri, error);
     });
 
   } };
@@ -153,9 +158,9 @@ let mars = createPlanet({
       shininess: 10 },
 
     textures: {
-      map: './assets/Assets/Gemini_Generated_Image_o0otfwo0otfwo0ot.png',
-      bumpMap: './assets/bump_map.png',
-      specularMap: './assets/rgb_sketchmap.jpg' } },
+      map: './Assets/Gemini_Generated_Image_o0otfwo0otfwo0ot.png',
+      bumpMap: './Assets/bump_map.png',
+      specularMap: './Assets/rgb_sketchmap.jpg' } },
 
 
   atmosphere: {
@@ -164,8 +169,8 @@ let mars = createPlanet({
       opacity: 0.8 },
 
     textures: {
-      map: './assets/cloud_map.png',
-      alphaMap: './assets/cloud_map.png' },
+      map: './Assets/cloud_map.png',
+      alphaMap: './Assets/cloud_map.png' },
 
     glow: {
       size: 0.02,
@@ -245,9 +250,14 @@ let galaxy = new THREE.Mesh(galaxyGeometry, galaxyMaterial);
 
 textureLoader.crossOrigin = true;
 textureLoader.load(
-'./assets/Assets/Gemini_Generated_Image_tb4q3atb4q3atb4q.png',
+'./Assets/Gemini_Generated_Image_6fj4wr6fj4wr6fj4.png',
 function (texture) {
   galaxyMaterial.map = texture;
+  scene.add(galaxy);
+},
+undefined,
+function (error) {
+  console.error('Error loading galaxy texture:', error);
   scene.add(galaxy);
 });
 
